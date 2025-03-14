@@ -4,6 +4,7 @@ import {Col, Container, Row, Card, ListGroup } from 'react-bootstrap';
 import Search from "./components/Search";
 import AddAppiontment from './components/AddAppointment';
 import appointmentList from "./data.json"
+import AppointmentInfo from './components/AppointmentInfo';
 
 
 function App() {
@@ -29,12 +30,7 @@ function App() {
               <Card.Header>Appointments</Card.Header>
               <ListGroup variant='flush'>
                 {appointmentList.map(appointment => (
-                  <ListGroup.Item>
-                    <p><small>Date: {appointment.aptDate}</small></p>
-                    <p><strong>First Name: {appointment.firstName}</strong></p>
-                    <p><strong>Last Name: {appointment.lastName}</strong></p>
-                    <p><strong>Notes: {appointment.aptNotes}</strong></p>
-                  </ListGroup.Item>
+                    <AppointmentInfo key={appointment.id}/>
                 ))}
               </ListGroup>
             </Card>
