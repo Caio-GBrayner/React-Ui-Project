@@ -1,8 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BsCalendar2CheckFill} from "react-icons/bs";
-import {Col, Container, Row } from 'react-bootstrap';
+import {Col, Container, Row, Card, ListGroup } from 'react-bootstrap';
 import Search from "./components/Search";
 import AddAppiontment from './components/AddAppointment';
+import appointmentList from "./data.json"
+
 
 function App() {
   return (
@@ -19,6 +21,23 @@ function App() {
         <Row className='justify-content-center'> 
           <Col md={4}>
             <Search/>
+          </Col>
+        </Row>
+        <Row className='Justify-content-center'>
+          <Col md="8">
+            <Card className='mb-3'>
+              <Card.Header>Appointments</Card.Header>
+              <ListGroup variant='flush'>
+                {appointmentList.map(appointment => (
+                  <ListGroup.Item>
+                    <p><small>Date: {appointment.aptDate}</small></p>
+                    <p><strong>First Name: {appointment.firstName}</strong></p>
+                    <p><strong>Last Name: {appointment.lastName}</strong></p>
+                    <p><strong>Notes: {appointment.aptNotes}</strong></p>
+                  </ListGroup.Item>
+                ))}
+              </ListGroup>
+            </Card>
           </Col>
         </Row>
       </Container>
