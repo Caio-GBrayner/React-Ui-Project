@@ -30,7 +30,7 @@ function App() {
               <Card.Header>Appointments</Card.Header>
               <ListGroup variant='flush'>
                 {appointmentList.map(appointment => (
-                    <AppointmentInfo key={appointment.id}/>
+                    <AppointmentInfo key={appointment.id} appointment={appointment}/>
                 ))}
               </ListGroup>
             </Card>
